@@ -47,6 +47,6 @@ class ProStageController extends AbstractController
      */
     public function afficheId($id)
     {
-        return new Response('<html><body><h1>Cette page affichera le descriptif du stage ayant pour identifiant'.$id.'</h1></body></html>');
+        return new Response('<html><body><h1>Cette page affichera le descriptif du stage ayant pour identifiant '.$id.'</h1></body></html>');
     }
 }
