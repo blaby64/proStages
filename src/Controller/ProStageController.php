@@ -19,21 +19,21 @@ class ProStageController extends AbstractController
 
     public function afficheBienvenue()
     {
-        return new Response('<html><body><h1>Bienvenue sur la page d accueil de Prostages</h1></body></html>');
+        return $this->render('pro_stage/accueil.html.twig');
     }
 
     public function afficheEntreprises()
     {
-        return new Response('<html><body><h1>Cette page affichera la liste des entreprises proposant un stage</h1></body></html>');
+        return $this->render('pro_stage/entreprises.html.twig');
     }
 
     public function afficheFormations()
     {
-        return new Response('<html><body><h1>Cette page affichera la liste des formations de l IUT</h1></body></html>');
+        return $this->render('pro_stage/formations.html.twig');
     }
 
     public function afficheId($id)
     {
-        return new Response('<html><body><h1>Cette page affichera le descriptif du stage ayant pour identifiant '.$id.'</h1></body></html>');
+        return $this->render('pro_stage/stagesid.html.twig',['idRessource'=>$id]);
     }
 }
