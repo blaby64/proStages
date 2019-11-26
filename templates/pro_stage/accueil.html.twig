@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.html.twig' %}
 
-{% block title %}Hello ProStageController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-
-<h1>Bienvenue sur la page d'accueil de Prostages</h1>
+{{ parent() }}
+<h2>Bienvenue sur la page d'accueil de Prostages</h2>
 
 {% endblock %}

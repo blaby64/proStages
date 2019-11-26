@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.html.twig' %}
 
-{% block title %}Hello ProStageController!{% endblock %}
+{% block title %}Formations{% endblock %}
 
 {% block body %}
-
-<h1>Cette page affichera la liste des formations de l'IUT</h1>
+{{ parent() }}
+<h2>Cette page affichera la liste des formations de l'IUT</h2>
 
 {% endblock %}

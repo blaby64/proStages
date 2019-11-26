@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.html.twig' %}
 
-{% block title %}Hello ProStageController!{% endblock %}
+{% block title %}Entreprises{% endblock %}
 
 {% block body %}
-
-<h1>Cette page affichera la liste des entreprises proposant un stage</h1>
+{{ parent() }}
+<h2>Cette page affichera la liste des entreprises proposant un stage</h2>
 
 {% endblock %}
