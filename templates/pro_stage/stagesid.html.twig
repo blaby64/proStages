@@ -4,6 +4,19 @@
 
 {% block contenu %}
 
-
+  <div class="jumbotron">
+    <h1 class="display-4">{{stage.titre}}</h1>
+    <p class="lead">{{stage.description}}</p>
+    <hr class="my-4">
+    <p>Entreprise : {{stage.entreprise.nom}}</p>
+    <p>Email : {{stage.email}}</p>
+    <p>Formations :
+    {% for formationCourante in stage.formations %}
+      {% if loop.last %}
+          {{ formationCourante.nom }}.
+      {% else %}
+          {{ formationCourante.nom }},
+      {% endif %}
+    {% endfor %}</p>
 
 {% endblock %}

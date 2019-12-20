@@ -3,5 +3,30 @@
 {% block title %}Entreprises{% endblock %}
 
 {% block contenu %}
+{% set idCollapse = "q"%}
+{% for entreprise in entreprises %}
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ idCollapse }}" aria-expanded="false" aria-controls="{{ idCollapse }}" style="color:#2B2929">
+          {{ entreprise.nom }}
+        </button>
+      </h2>
+    </div>
 
+    <div id="{{ idCollapse }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+
+        Adresse : {{ entreprise.adresse }} </br>
+        Activité : {{ entreprise.activite }} </br>
+        Site : {{ entreprise.site }} </br> </br>
+
+        <a class="btn btn-primary" href='{{path('proStage_entreprises_id',{id:entreprise.id})}}' role="button">Voir les stages</a>
+
+      </div>
+    </div>
+  </div>
+{% set idCollapse = idCollapse ~ "q"%}
+    {% endfor %}
 {% endblock %}

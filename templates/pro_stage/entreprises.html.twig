@@ -3,6 +3,44 @@
 {% block title %}Stages par entreprise{% endblock %}
 
 {% block contenu %}
+    {% set idCollapse = "q"%}
+        {% for stage in stages %}
+            <div class="row"><!-- ligne 3 contenant les stages -->
+                <div class="col-12">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id={{ stage.id }}>
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ idCollapse }}" aria-expanded="false" aria-controls="{{ idCollapse }}" style="color:#2B2929">
+                                    {{ stage.titre }}
+                                </button>
+                            </h2>
+                            </div>
 
+                            <div id="{{ idCollapse }}" class="collapse" aria-labelledby="{{ idCollapse }}" data-parent="#accordionExample">
+                            <div class="card-body">
+                                </br>
+                                <u><b>Entreprise :</u></b> {{ stage.entreprise.nom }}
+                                </br>
+                                <u><b>Formation :</u></b>
+                                {% for formationCourante in stage.formations %}
+                                    {% if loop.last %}
+                                        {{ formationCourante.nom }}.
+                                    {% else %}
+                                        {{ formationCourante.nom }},
+                                    {% endif %}
+                                {% endfor %}
+                                </br>
+                                </br>
+                                <a class="btn btn-primary" href="/stages/{{stage.id}}" role="button">En savoir plus</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% set idCollapse = idCollapse ~ "q"%}
+
+        {% endfor %}
 
 {% endblock %}
