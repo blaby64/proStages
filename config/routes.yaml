@@ -10,9 +10,17 @@ proStage_formations:
     path: /formations
     controller: App\Controller\ProStageController::afficheFormations
 
+proStage_formations_id:
+    path: /formations/{id}
+    controller: App\Controller\ProStageController::formations
+
 proStage_entreprises:
     path: /entreprises
     controller: App\Controller\ProStageController::afficheEntreprises
+
+proStage_entreprises_id:
+    path: /entreprises/{id}
+    controller: App\Controller\ProStageController::entreprises
 
 proStage_stages_id:
     path: /stages/{id}
