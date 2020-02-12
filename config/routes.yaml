@@ -11,7 +11,7 @@ proStage_formations:
     controller: App\Controller\ProStageController::afficheFormations
 
 proStage_formations_id:
-    path: /formations/{id}
+    path: /formations/{nom}
     controller: App\Controller\ProStageController::formations
 
 proStage_entreprises:
@@ -19,7 +19,7 @@ proStage_entreprises:
     controller: App\Controller\ProStageController::afficheEntreprises
 
 proStage_entreprises_id:
-    path: /entreprises/{id}
+    path: /entreprises/{nom}
     controller: App\Controller\ProStageController::entreprises
 
 proStage_stages_id:

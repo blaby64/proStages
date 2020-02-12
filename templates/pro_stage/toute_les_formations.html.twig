@@ -6,7 +6,7 @@
 
     <ul class="list-group">
     {% for formation in formations %}
-        <li class="list-group-item"><a href='{{path('proStage_formations_id',{id:formation.id})}}' style="color:#2B2929">{{ formation.nom }} - {{ formation.nomLong }} </a></li>
+        <li class="list-group-item"><a href='{{path('proStage_formations_id',{nom:formation.nom})}}' style="color:#2B2929">{{ formation.nom }} - {{ formation.nomLong }} </a></li>
 
     {% endfor %}
     </ul>
