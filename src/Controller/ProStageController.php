@@ -11,7 +11,9 @@ use App\Entity\Formation;
 use App\Repository\StageRepository;
 use App\Repository\EntrepriseRepository;
 use App\Repository\FormationRepository;
-
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextAreaType;
 
 
 class ProStageController extends AbstractController
@@ -29,10 +31,10 @@ class ProStageController extends AbstractController
         $entreprise = new Entreprise();
 
         $formulaireEntreprise = $this -> createFormBuilder($entreprise)
-                                      -> add('nom')
-                                      -> add('adresse')
-                                      -> add('activite')
-                                      -> add('site')
+                                      -> add('nom',TextType::class)
+                                      -> add('adresse',TextType::class)
+                                      -> add('activite',TextAreaType::class)
+                                      -> add('site',UrlType::class)
                                       -> getForm();
 
         return $this->render('pro_stage/ajoutEntreprise.html.twig');
