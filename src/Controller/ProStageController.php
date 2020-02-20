@@ -14,6 +14,8 @@ use App\Repository\FormationRepository;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextAreaType;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 
 
 class ProStageController extends AbstractController
@@ -36,6 +38,16 @@ class ProStageController extends AbstractController
                                       -> add('activite',TextAreaType::class)
                                       -> add('site',UrlType::class)
                                       -> getForm();
+
+        $formulaireEntreprise->handleRequest($requetteHttp);
+
+        if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
+        {
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            return $this->redirectToRoute('proStage_Accueil');
+        }
 
         return $this->render('pro_stage/ajoutEntreprise.html.twig');
     }
