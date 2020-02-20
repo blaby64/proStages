@@ -5,9 +5,13 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Stage;
+use App\Entity\Entreprise;
+use App\Entity\Formation;
 use App\Repository\StageRepository;
 use App\Repository\EntrepriseRepository;
 use App\Repository\FormationRepository;
+
 
 
 class ProStageController extends AbstractController
@@ -22,6 +26,15 @@ class ProStageController extends AbstractController
 
     public function ajouterEntreprise()
     {
+        $entreprise = new Entreprise();
+
+        $formulaireEntreprise = $this -> createFormBuilder($entreprise)
+                                      -> add('nom')
+                                      -> add('adresse')
+                                      -> add('activite')
+                                      -> add('site')
+                                      -> getForm();
+
         return $this->render('pro_stage/ajoutEntreprise.html.twig');
     }
 
