@@ -20,6 +20,10 @@ class ProStageController extends AbstractController
         ]);
     }
 
+    public function ajouterEntreprise()
+    {
+        return $this->render('pro_stage/ajoutEntreprise.html.twig');
+    }
 
     public function afficheBienvenue(StageRepository $repoStage)
     {
@@ -45,7 +49,6 @@ class ProStageController extends AbstractController
       return $this->render('pro_stage/stagesid.html.twig',
       ['stage'=>$stages]);
     }
-
 
     public function entreprises($nom, StageRepository $repoStage)
     {
