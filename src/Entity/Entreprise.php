@@ -20,6 +20,12 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 50,
+     *      minMessage = "Le nom doit faire {{ limit }} caractères au minimum",
+     *      maxMessage = "Le nom doit faire {{ limit }} caractères au maximum"
+     *  )
      */
     private $nom;
 
