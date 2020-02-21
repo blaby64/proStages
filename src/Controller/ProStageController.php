@@ -28,7 +28,7 @@ class ProStageController extends AbstractController
         ]);
     }
 
-    public function ajouterEntreprise()
+    public function ajouterEntreprise(Request $requetteHttp, ObjectManager $manager)
     {
         $entreprise = new Entreprise();
 
@@ -46,10 +46,32 @@ class ProStageController extends AbstractController
             $manager->persist($entreprise);
             $manager->flush();
 
-            return $this->redirectToRoute('proStage_Accueil');
+            return $this->redirectToRoute('proStage_accueil');
         }
 
         return $this->render('pro_stage/ajoutEntreprise.html.twig');
+    }
+
+    public function modifierEntreprise(Request $requetteHttp, ObjectManager $manager, Entreprise $entreprise)
+    {
+        $formulaireEntreprise = $this -> createFormBuilder($entreprise)
+                                      -> add('nom', TextType::class)
+                                      -> add('adresse', TextType::class)
+                                      -> add('activite', TextAreaType::class)
+                                      -> add('site', UrlType::class)
+                                      -> getForm();
+
+        $formulaireEntreprise->handleRequest($requetteHttp);
+
+        if($formulaireEntreprise->isSubmitted())
+        {
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            return $this->redirectToRoute('proStage_accueil');
+        }
+
+        return $this->render('prostage/modifierEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise->createView()]);
     }
 
     public function afficheBienvenue(StageRepository $repoStage)
