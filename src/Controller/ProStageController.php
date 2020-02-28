@@ -13,7 +13,6 @@ use App\Repository\EntrepriseRepository;
 use App\Repository\FormationRepository;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextAreaType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -35,13 +34,13 @@ class ProStageController extends AbstractController
         $formulaireEntreprise = $this -> createFormBuilder($entreprise)
                                       -> add('nom',TextType::class)
                                       -> add('adresse',TextType::class)
-                                      -> add('activite',TextAreaType::class)
+                                      -> add('activite',TextType::class)
                                       -> add('site',UrlType::class)
                                       -> getForm();
 
         $formulaireEntreprise->handleRequest($requetteHttp);
 
-        if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
+        if($formulaireEntreprise->isSubmitted()) //&& $formulaireEntreprise->isValid())
         {
             $manager->persist($entreprise);
             $manager->flush();
@@ -49,7 +48,7 @@ class ProStageController extends AbstractController
             return $this->redirectToRoute('proStage_accueil');
         }
 
-        return $this->render('pro_stage/ajoutEntreprise.html.twig');
+        return $this->render('pro_stage/ajoutEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise->createView()]);
     }
 
     public function modifierEntreprise(Request $requetteHttp, ObjectManager $manager, Entreprise $entreprise)
@@ -57,7 +56,7 @@ class ProStageController extends AbstractController
         $formulaireEntreprise = $this -> createFormBuilder($entreprise)
                                       -> add('nom', TextType::class)
                                       -> add('adresse', TextType::class)
-                                      -> add('activite', TextAreaType::class)
+                                      -> add('activite', TextType::class)
                                       -> add('site', UrlType::class)
                                       -> getForm();
 
@@ -71,7 +70,7 @@ class ProStageController extends AbstractController
             return $this->redirectToRoute('proStage_accueil');
         }
 
-        return $this->render('prostage/modifierEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise->createView()]);
+        return $this->render('pro_stage/modifierEntreprise.html.twig', ['vueFormulaireEntreprise' => $formulaireEntreprise->createView()]);
     }
 
     public function afficheBienvenue(StageRepository $repoStage)

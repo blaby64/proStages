@@ -3,35 +3,17 @@
 {% block title %}Modifier une entreprise{% endblock %}
 
 {% block contenu %}
-<h3>Modification d'une entreprise :</h3>
-<div class="row">
-    {{ form_start(vueFormulaireEntreprise) }}
-        <div>
-            {{ form_label (vueFormulaireEntreprise.nom) }}
-            <br>
-            {{ form_errors (vueFormulaireEntreprise.nom) }}
-            {{ form_widget (vueFormulaireEntreprise.nom) }}
-        </div>
-        <div>
-            {{ form_label (vueFormulaireEntreprise.adresse) }}
-            <br>
-            {{ form_errors (vueFormulaireEntreprise.adresse) }}
-            {{ form_widget (vueFormulaireEntreprise.adresse) }}
-        </div>
-        <div>
-            {{ form_label (vueFormulaireEntreprise.activite) }}
-            {{ form_errors (vueFormulaireEntreprise.activite) }}
-            <br>
-            {{ form_widget (vueFormulaireEntreprise.activite) }}
-        </div>
-        <div>
-            {{ form_label (vueFormulaireEntreprise.site) }}
-            {{ form_errors (vueFormulaireEntreprise.site) }}
-            <br>
-            {{ form_widget (vueFormulaireEntreprise.site) }}
-        </div>
-        <br>
-        <button type="submit" class="btn btn-outline-dark"> Modifier entreprise </button>
-    {{ form_end(vueFormulaireEntreprise) }}
-</div>
+{{ form_start(vueFormulaireEntreprise) }}
+
+{{ form_row(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Nom de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Activité de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaireEntreprise.site, {'attr':{'placeholder':"Site web de l'entreprise..."}}) }}
+
+<button type="submit" class="btn btn-dark">Enregistrer</button>
+
+{{ form_end(vueFormulaireEntreprise) }}
 {% endblock %}
