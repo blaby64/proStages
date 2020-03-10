@@ -6,16 +6,18 @@ use App\Entity\Entreprise;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class EntrepriseType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('activite')
-            ->add('adresse')
-            ->add('site')
+            ->add('nom', TextType::class)
+            ->add('activite', TextType::class)
+            ->add('adresse', TextType::class)
+            ->add('site', UrlType::class)
         ;
     }
 

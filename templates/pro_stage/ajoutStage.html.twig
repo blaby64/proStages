@@ -1,0 +1,29 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Ajout d'un stage{% endblock %}
+
+{% block contenu %}
+{{ form_start(vueFormulaire) }}
+
+{{ form_row(vueFormulaire.titre, {'attr':{'placeholder':"Titre du stage..."}}) }}
+
+{{ form_row(vueFormulaire.email, {'attr':{'placeholder':"Adresse de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.description, {'attr':{'placeholder':"Activité de l'entreprise..."}}) }}
+
+<p>Entreprise</p>
+
+{{ form_row(vueFormulaire.entreprise.nom, {'attr':{'placeholder':"Nom de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.entreprise.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.entreprise.activite, {'attr':{'placeholder':"Activité de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.entreprise.site, {'attr':{'placeholder':"Site web de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.formations, {'attr':{'placeholder':"Les formations correspondantes..."}}) }}
+
+<button type="submit" class="btn btn-dark">Enregistrer</button>
+
+{{ form_end(vueFormulaire) }}
+{% endblock %}
