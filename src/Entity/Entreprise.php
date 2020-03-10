@@ -32,16 +32,21 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $activite;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(pattern = "#^[1-9][0-9]{0,2}(bis| bis)? #", message = "Numéro de voie incorrect")
+     * @Assert\Regex(pattern = "# rue|boulevard|impasse|allée|place|route|voie|avenue #", message = "Rue incorrecte")
+     * @Assert\Regex(pattern = "# [0-9]{5} #", message = "Code postal incomplet")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Url
      */
     private $site;
 
