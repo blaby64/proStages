@@ -15,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
-
+use App\Form\EntrepriseType;
 
 class ProStageController extends AbstractController
 {
@@ -31,12 +31,7 @@ class ProStageController extends AbstractController
     {
         $entreprise = new Entreprise();
 
-        $formulaireEntreprise = $this -> createFormBuilder($entreprise)
-                                      -> add('nom',TextType::class)
-                                      -> add('adresse',TextType::class)
-                                      -> add('activite',TextType::class)
-                                      -> add('site',UrlType::class)
-                                      -> getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
 
         $formulaireEntreprise->handleRequest($requetteHttp);
 
@@ -53,12 +48,7 @@ class ProStageController extends AbstractController
 
     public function modifierEntreprise(Request $requetteHttp, ObjectManager $manager, Entreprise $entreprise)
     {
-        $formulaireEntreprise = $this -> createFormBuilder($entreprise)
-                                      -> add('nom', TextType::class)
-                                      -> add('adresse', TextType::class)
-                                      -> add('activite', TextType::class)
-                                      -> add('site', UrlType::class)
-                                      -> getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
 
         $formulaireEntreprise->handleRequest($requetteHttp);
 
