@@ -18,8 +18,8 @@ class StageType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class)
-            ->add('description', EmailType::class)
-            ->add('email', TextType::class)
+            ->add('description', TextType::class)
+            ->add('email', EmailType::class)
             ->add('entreprise', EntrepriseType::class)
             ->add('formations', EntityType::class, ['class'=>Formation::class, 'choice_label' => 'nom', 'expanded' => true, 'multiple' => true])
         ;
