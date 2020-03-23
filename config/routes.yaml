@@ -35,5 +35,13 @@ proStage_modifierEntreprise:
     controller: App\Controller\ProStageController::modifierEntreprise
 
 proStage_ajoutStage:
-    path: profile/stage/ajouter
+    path: user/stage/ajouter
     controller: App\Controller\ProStageController::ajouterStage
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
