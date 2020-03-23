@@ -57,6 +57,6 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('security/inscription.html.twig', ['vueFormulaireUser' => $formulaireUser->createView()]);
+        return $this->render('security/inscription.html.twig', ['vueFormulaire' => $formulaireUser->createView()]);
     }
 }

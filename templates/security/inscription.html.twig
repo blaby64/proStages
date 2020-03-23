@@ -2,16 +2,16 @@
 
 {% block title %}Inscription{% endblock %}
 
-{% block contenuPage %}
-{{ form_start(vueFormulaireUser) }}
+{% block contenu %}
+{{ form_start(vueFormulaire) }}
 
-{{ form_row(vueFormulaireUser.prenom, {'attr':{'placeholder':"Votre prénom..."}})}}
+{{ form_row(vueFormulaire.prenom, {'attr':{'placeholder':"Votre prénom..."}})}}
 
-{{ form_row(vueFormulaireUser.nom, {'attr':{'placeholder':"Votre nom..."}})}}
+{{ form_row(vueFormulaire.nom, {'attr':{'placeholder':"Votre nom..."}})}}
 
-{{ form_row(vueFormulaireUser.email, {'attr':{'placeholder':"Votre email..."}})}}
+{{ form_row(vueFormulaire.email, {'attr':{'placeholder':"Votre email..."}})}}
 
-{{ form_row(vueFormulaireUser.password, {'attr':{'placeholder':"Votre mot de passe..."}})}}
+{{ form_row(vueFormulaire.password, {'attr':{'placeholder':"Votre mot de passe..."}})}}
 
 <button type="submit" class="btn btn-dark">S'inscrire</button>
 
