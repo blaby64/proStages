@@ -45,3 +45,7 @@ app_login:
 app_logout:
     path: /logout
     controller: App\Controller\SecurityController::logout
+
+app_inscription:
+    path: /inscription
+    controller: App\Controller\SecurityController::inscription
