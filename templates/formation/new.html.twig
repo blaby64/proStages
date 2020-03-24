@@ -1,0 +1,10 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Ajout d'une formation{% endblock %}
+
+{% block contenu %}
+
+    {{ include('formation/_form.html.twig') }}
+
+    <a href="{{ path('formation_index') }}", style="color:#000000">Retour à la liste des formations</a>
+{% endblock %}

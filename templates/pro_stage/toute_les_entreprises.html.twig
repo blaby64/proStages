@@ -1,6 +1,6 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}Entreprises{% endblock %}
+{% block title %}Liste des entreprises{% endblock %}
 
 {% block contenu %}
 {% set idCollapse = "q"%}
@@ -22,8 +22,8 @@
         Activité : {{ entreprise.activite }} </br>
         Site : {{ entreprise.site }} </br> </br>
 
-        <a class="btn btn-primary" href='{{path('proStage_entreprises_id',{nom:entreprise.nom})}}' role="button">Voir les stages</a>
-        <a class="btn btn-primary" href='{{path('proStage_modifierEntreprise',{nom:entreprise.nom})}}' role="button">Modifier</a>
+        <a class="btn btn-dark" href='{{path('proStage_entreprises_id',{nom:entreprise.nom})}}' role="button">Voir les stages</a>
+        <a class="btn btn-dark" href='{{path('proStage_modifierEntreprise',{nom:entreprise.nom})}}' role="button">Modifier</a>
 
       </div>
     </div>
