@@ -1,7 +1,7 @@
 easy_admin:
     site_name: 'ProStage'
     design:
-        brand_color: '#33D7FF'
+        brand_color: '#000000'
         menu:
         - {label: 'Administration'}
         - {entity: 'User', default: true, icon: 'user'}
@@ -12,7 +12,7 @@ easy_admin:
             - {entity: 'Formation', icon: 'chevron-right'}
         - { label: 'Retour accueil', route: 'proStage_accueil', icon: 'reply'}
     list:
-      max_results: 15
+      max_results: 20
     entities:
         # List the entity class name you want to manage
         - App\Entity\Entreprise
